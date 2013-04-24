@@ -33,6 +33,29 @@ module Ripple
           before { subject.force = true }
           it { subject.build_args.should eq '--force' }
         end
+
+        context 'with nil cache' do
+          it { subject.build_args.should eq '' }
+        end
+
+        context 'with no cache' do
+          before { subject.cache = [] }
+          it { subject.build_args.should eq '' }
+        end
+
+        context 'with one feed' do
+          before { subject.cache = 'some/cache' }
+          it { subject.build_args.should eq '--cache "some/cache"' }
+        end
+
+        context 'with feeds, cache, and force' do
+          before {
+            subject.feeds = ['feed1', 'feed2']
+            subject.cache = 'some/cache'
+            subject.force = true
+          }
+          it { subject.build_args.should eq '--feeds "feed1#feed2" --cache "some/cache" --force' }
+        end
       end
     end
   end

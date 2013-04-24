@@ -7,6 +7,7 @@ module Ripple
     class Restore
       include Engine
       include ParamBuilders::Feeds
+      include ParamBuilders::Cache
       include ParamBuilders::Force
 
       def command
