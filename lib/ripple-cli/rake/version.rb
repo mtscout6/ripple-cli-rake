@@ -1,5 +1,8 @@
+require 'semver'
+
 module Ripple
   module Rake
-    VERSION = "0.0.1"
+    v = SemVer.find
+    VERSION = v.format('%M.%m.%p%s').gsub(/-/, '.')
   end
 end
