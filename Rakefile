@@ -4,8 +4,10 @@ require 'semver'
 
 RSpec::Core::RakeTask.new(:spec)
 
+desc 'Default task runs tests, sets dev version, and builds the gem'
 task :default => %w{dev_version spec build version_undo_file_changes}
 
+desc 'Teamcity build process'
 task :ci => %w{clean ci_version spec build version_undo_file_changes}
 
 task :clean do
