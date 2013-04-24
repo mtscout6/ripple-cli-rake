@@ -100,14 +100,29 @@ module Ripple
           end
         end
 
-        context 'with feeds, cache, all_solutions, and force' do
+        context 'with nil verbose' do
+          it { subject.build_args.should eq '' }
+        end
+
+        context 'with no verbose' do
+          before { subject.verbose = false }
+          it { subject.build_args.should eq '' }
+        end
+
+        context 'with yes verbose' do
+          before { subject.verbose = true }
+          it { subject.build_args.should eq '--verbose' }
+        end
+
+        context 'with feeds, cache, all_solutions, force, and verbose' do
           before {
             subject.feeds = ['feed1', 'feed2']
             subject.cache = 'some/cache'
             subject.all_solutions = true
             subject.force = true
+            subject.verbose = true
           }
-          it { subject.build_args.should eq '--feeds "feed1#feed2" --cache "some/cache" --all --force' }
+          it { subject.build_args.should eq '--feeds "feed1#feed2" --cache "some/cache" --all --force --verbose' }
         end
       end
     end

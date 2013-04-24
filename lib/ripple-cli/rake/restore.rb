@@ -11,6 +11,7 @@ module Ripple
       include ParamBuilders::Cache
       include ParamBuilders::Solution
       include ParamBuilders::Force
+      include ParamBuilders::Verbose
 
       def command
         'restore'
