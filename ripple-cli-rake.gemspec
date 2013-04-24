@@ -6,11 +6,11 @@ require 'ripple-cli/rake/version'
 Gem::Specification.new do |spec|
   spec.name          = "ripple-cli-rake"
   spec.version       = Ripple::Rake::VERSION
-  spec.authors       = ["Matthew Smith"]
-  spec.email         = ["mtscout6@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.authors       = ["Jeremy Miller", "Josh Arnold", "Ryan Rauh", "Matthew Smith"]
+  spec.email         = ["fubumvc-devel@googlegroups.com"]
+  spec.description   = %q{Wraps the ripple command line parameters with classes and provides rake tasks}
+  spec.summary       = %q{Rake tasks for use with ripple-cli}
+  spec.homepage      = "http://fubu-project.org"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)
@@ -18,5 +18,7 @@ Gem::Specification.new do |spec|
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.3"
-  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rake", "~> 10.0"
+
+  spec.add_dependency "ripple-cli"
 end
