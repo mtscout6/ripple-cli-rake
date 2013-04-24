@@ -48,13 +48,66 @@ module Ripple
           it { subject.build_args.should eq '--cache "some/cache"' }
         end
 
-        context 'with feeds, cache, and force' do
+        context 'with all_solutions nil' do
+          context 'with nil solution' do
+            it { subject.build_args.should eq '' }
+          end
+
+          context 'with no solution' do
+            before { subject.solution = '' }
+            it { subject.build_args.should eq '' }
+          end
+
+          context 'with one feed' do
+            before { subject.solution = 'solutionfile' }
+            it { subject.build_args.should eq '--solution "solutionfile"' }
+          end
+        end
+
+        context 'with all_solutions false' do
+          before { subject.all_solutions = false }
+
+          context 'with nil solution' do
+            it { subject.build_args.should eq '' }
+          end
+
+          context 'with no solution' do
+            before { subject.solution = '' }
+            it { subject.build_args.should eq '' }
+          end
+
+          context 'with one feed' do
+            before { subject.solution = 'solutionfile' }
+            it { subject.build_args.should eq '--solution "solutionfile"' }
+          end
+        end
+
+        context 'with all_solutions true' do
+          before { subject.all_solutions = true }
+
+          context 'with nil solution' do
+            it { subject.build_args.should eq '--all' }
+          end
+
+          context 'with no solution' do
+            before { subject.solution = '' }
+            it { subject.build_args.should eq '--all' }
+          end
+
+          context 'with one feed' do
+            before { subject.solution = 'solutionfile' }
+            it { subject.build_args.should eq '--all' }
+          end
+        end
+
+        context 'with feeds, cache, all_solutions, and force' do
           before {
             subject.feeds = ['feed1', 'feed2']
             subject.cache = 'some/cache'
+            subject.all_solutions = true
             subject.force = true
           }
-          it { subject.build_args.should eq '--feeds "feed1#feed2" --cache "some/cache" --force' }
+          it { subject.build_args.should eq '--feeds "feed1#feed2" --cache "some/cache" --all --force' }
         end
       end
     end
