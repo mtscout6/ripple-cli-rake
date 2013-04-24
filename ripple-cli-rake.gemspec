@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.description   = %q{Wraps the ripple command line parameters with classes and provides rake tasks}
   spec.summary       = %q{Rake tasks for use with ripple-cli}
   spec.homepage      = "http://fubu-project.org"
-  spec.license       = "MIT"
+  spec.license       = "Apache 2.0"
 
   spec.files         = `git ls-files`.split($/)
   spec.test_files    = spec.files.grep(%r{^(test|spec|features)/})
