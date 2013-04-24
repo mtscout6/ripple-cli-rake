@@ -1,6 +1,6 @@
-# Ripple::Cli::Rake
+# Ripple-Cli-Rake
 
-TODO: Write a gem description
+Extension for ripple-cli gem. Wraps ruby classes around the ripple command line parameters.
 
 ## Installation
 
@@ -18,7 +18,7 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+TODO: Coming Soon!
 
 ## Contributing
 
